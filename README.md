@@ -2,10 +2,10 @@
 - T145
 
 ## Name of System
-- TimeHive
+- BukSkwela: Enrollment Repository System
 
 ## System Description
-TimeHive is a workforce time-tracking platform designed to manage employee attendance. It enables businesses to track clock-ins and clock-outs, generate attendance reports, and customize their timekeeping system.
+•	BukSkwela is a requirement repository system for enrolling BukSU students. It serves as a digital hub for uploading enrollment documents and tracking submission status. It ensures that students meet their enrollment requirements. The system also provides a backup for physical records, which helps faculty manage and verify student compliance efficiently.
 
 ## Names of Students
 - Jorell E. Abecia
