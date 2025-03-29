@@ -27,6 +27,8 @@ Route::middleware(['web'])
 
 Route::middleware(['web', 'tenant', 'auth:admin'])
     ->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'adminDashboard'])
+            ->name('tenant.admin.dashboard');
         Route::prefix('admin')->group(function () {
             Route::get('/dashboard', [DashboardController::class, 'adminDashboard'])
                 ->name('tenant.admin.dashboard');
