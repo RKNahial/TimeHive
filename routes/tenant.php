@@ -15,6 +15,11 @@ use App\Http\Controllers\Tenant\DashboardController;
 use App\Http\Controllers\Staff\StaffAuthController;
 use App\Http\Controllers\Staff\StaffRegistrationController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\Staff\StaffController;
+use App\Http\Controllers\Course\CourseController;
+use App\Http\Controllers\Requirement\RequirementController;
+use App\Http\Controllers\Report\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['web'])
@@ -36,6 +41,26 @@ Route::middleware(['web', 'tenant', 'auth:admin'])
                 ->name('staff.register');
             Route::post('/staff/register', [StaffRegistrationController::class, 'register'])
                 ->name('staff.register.save');
+            Route::post('/instructor', [StaffRegistrationController::class, 'register'])
+                ->name('tenant.instructor.store');
+            Route::get('/students', [StudentController::class, 'index'])
+                ->name('tenant.students.index');
+            Route::get('/staff', [StaffController::class, 'index'])
+                ->name('tenant.staff.index');
+            Route::get('/courses', [CourseController::class, 'index'])
+                ->name('tenant.courses.index');
+            Route::get('/requirements', [RequirementController::class, 'index'])
+                ->name('tenant.requirements.index');
+            Route::prefix('reports')->group(function () {
+                Route::get('/students', [ReportController::class, 'students'])
+                    ->name('tenant.reports.students');
+                Route::get('/staff', [ReportController::class, 'staff'])
+                    ->name('tenant.reports.staff');
+                Route::get('/courses', [ReportController::class, 'courses'])
+                    ->name('tenant.reports.courses');
+                Route::get('/requirements', [ReportController::class, 'requirements'])
+                    ->name('tenant.reports.requirements');
+            });
         });
     });
 
